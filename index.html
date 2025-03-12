@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socks' Portfolio</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-bg: #2C2F33;
+            --secondary-bg: #23272A;
+            --text-color: #ffffff;
+            --card-bg: #36393F;
+            --accent-color: #7289DA;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: var(--secondary-bg);
+            height: 100vh;
+            padding: 20px;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            text-align: center;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            object-fit: cover;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .username {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: var(--accent-color);
+        }
+
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+            width: calc(100% - 270px);
+        }
+
+        header h1 {
+            font-size: 28px;
+            color: var(--accent-color);
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--accent-color);
+        }
+
+        select, input {
+            padding: 10px;
+            border-radius: 5px;
+            background: var(--secondary-bg);
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid var(--accent-color);
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="https://raw.githubusercontent.com/1rofskcos/Online-Portfolio-with-CSS-Styling/main/bochisigma.jpg" alt="Socks' Profile">
+            <div class="username">@socks</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about"><i class="bx bxs-user"></i> About Me</a></li>
+                <li><a href="#projects"><i class="bx bxs-folder"></i> Projects</a></li>
+                <li><a href="#subjects"><i class="bx bxs-book"></i> Subjects</a></li>
+                <li><a href="#contact"><i class="bx bxs-contact"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Welcome to Socks' Portfolio</h1>
+        </header>
+        
+          <section id="about" class="card">
+            <h2>About Me</h2>
+            <p>Hi! I'm Princess Heart Danila Y. Aguid, a 21-year-old student at USTP aspiring to become a game developer.</p>
+            <ul>
+                <li>Studying at University of Science and Technology of Southern Philippines - CDO Campus</li>
+                <li>Community Formations Ambassador at Google Developer Groups on Campus USTP - CDO</li>
+                <li>Learning Python, C, Java, HTML, CSS, JavaScript</li>
+                <li>Exploring front-end & back-end development</li>
+                <li>Aspiring game developer passionate about innovation</li>
+            </ul>
+        </section>
+
+        <section id="projects" class="card">
+            <h2>Projects</h2>
+            <p>Here are some of my projects:</p>
+            <ul>
+                <li>🌟 <b>Game Prototype</b> - A small indie game built using unity with Coding Game: Clash of Code</li>
+                <li>🌐 <b>Personal Website</b> - This portfolio site</li>
+                <li>📊 <b>Data Dashboard</b> - Python-based data visualization</li>
+            </ul>
+        </section>
+        
+
+
+        <section id="subjects" class="card">
+            <h2>Subjects</h2>
+            <select id="semester-filter">
+                <option value="all">All Semesters</option>
+                <option value="1st-year-1st-sem">1st Year - 1st Semester</option>
+                <option value="1st-year-2nd-sem">1st Year - 2nd Semester</option>
+                <option value="2nd-year-1st-sem">2nd Year - 1st Semester</option>
+                <option value="2nd-year-2nd-sem">2nd Year - 2nd Semester</option>
+            </select>
+            <input type="text" id="search" placeholder="Search subjects...">
+            <table id="subject-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Code</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </div>
+
+    <script>
+        const subjects = {
+            "1st-year-1st-sem": [
+                { code: "IT111", title: "Introduction to Computing" },
+                { code: "IT112", title: "Computer Programming 1" },
+                { code: "PurCom", title: "Purposive Communication" },
+                { code: "RPH", title: "Readings in Philippine History" },
+                { code: "TCW", title: "The Contemporary World" },
+                { code: "MMW", title: "Mathematics in the Modern World" },
+                { code: "PATH FIT 1", title: "Movement Enhancement" },
+                { code: "NSTP101b", title: "Civic Welfare Training Service 1" }
+            ],
+            "1st-year-2nd-sem": [
+                { code: "IT121", title: "Computer Programming 2" },
+                { code: "IT122", title: "Data Structures and Algorithms" },
+                { code: "IT123", title: "Discrete Mathematics" },
+                { code: "ArtApp", title: "Art Appreciation" },
+                { code: "UTS", title: "Understanding the Self" },
+                { code: "STS", title: "Science, Technology and Society" },
+                { code: "PATH FIT 2", title: "Fitness Activity and Exercises" },
+                { code: "NSTP102b", title: "Civic Welfare Training Service 2" }
+            ],
+             "2nd-year-1st-sem": [
+                { code: "IT211", title: "Intro to Human Computer Interaction" },
+                { code: "IT212", title: "Fundamentals of Database Systems" },
+                { code: "IT213", title: "Platform Technologies" },
+                { code: "IT214", title: "Object Oriented Programming" },
+                { code: "IT215", title: "Accounting Principles" },
+                { code: "EnviSci", title: "Environmental Science" },
+                { code: "PATH FIT 3", title: "Physical Activity Towards Health and Fitness 1" },
+            ],
+             "2nd-year-2nd-sem": [
+                { code: "IT221", title: "Information Management" },
+                { code: "IT222", title: "Networking 1" },
+                { code: "IT223", title: "Web Systems and Technologies" },
+                { code: "IT224", title: "Systems Integration and Architecture" },
+                { code: "Ethc", title: "Ethics" },
+                { code: "Rizal", title: "Life and Works of Rizal" },
+                { code: "PATH FIT 4", title: "Physical Activity Towards Health and Fitness 4" },
+            ]
+        };
+
+        function displaySubjects() {
+            const tableBody = document.querySelector('#subject-table tbody');
+            const semesterFilter = document.getElementById('semester-filter').value;
+            const searchValue = document.getElementById('search').value.toLowerCase();
+            tableBody.innerHTML = '';
+
+            let filteredSubjects = semesterFilter === "all" ? Object.values(subjects).flat() : subjects[semesterFilter] || [];
+
+            filteredSubjects.forEach((subject, index) => {
+                if (subject.title.toLowerCase().includes(searchValue) || subject.code.toLowerCase().includes(searchValue)) {
+                    tableBody.innerHTML += `<tr><td>${index + 1}</td><td>${subject.code}</td><td>${subject.title}</td></tr>`;
+                }
+            });
+        }
+
+        document.getElementById('search').addEventListener('input', displaySubjects);
+        document.getElementById('semester-filter').addEventListener('change', displaySubjects);
+
+        displaySubjects();
+    </script>
+    
+     <section id="contact" class="card">
+            <h2>Contact Me</h2>
+            <p><i class="bx bxl-discord"></i> Discord: socks</p>
+            <p><i class="bx bxl-facebook"></i> Facebook: Princess Heart Danila Aguid</p>
+            <p><i class="bx bxl-instagram"></i> Instagram: 1rofskcos.c</p>
+        </section>
+    </div>
+</body>
+</html>
+
+        
